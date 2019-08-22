@@ -1,13 +1,16 @@
-<nav class="navbar navbar-default" style="margin: 0px; padding: 0px; width: 100%;">
-    <div style="margin: 0px; padding: 0px; width: 100%;">
-      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <ul class="nav navbar-nav" style="display: block;">
-          <li style="float: left; margin-right: 10px;"><a routerLink="datadisplay">DataDisplay</a></li>
-          <li style="float: left; margin-right: 10px;"><a routerLink="login">Login</a></li>
-        </ul>
+<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 100vh">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <nav class="navbar navbar-default" style="margin: 0px; padding: 0px; width: 100%;">
+        <div style="margin: 0px; padding: 0px; width: 100%;">
+          <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <ul class="nav navbar-nav" style="display: block;">
+              <li style="float: left; margin-right: 10px;"><a routerLink="datadisplay">DataDisplay</a></li>
+              <li style="float: left; margin-right: 10px;"><a routerLink="login">Login</a></li>
+            </ul>
+          </nav>
+          <!-- <div *ngIf="showLoadingIndicator" class="spinner"></div> -->
+        </div>
       </nav>
-      <!-- <div *ngIf="showLoadingIndicator" class="spinner"></div> -->
     </div>
-</nav>
-<router-outlet></router-outlet>
-
+  <router-outlet></router-outlet>
+</div>
