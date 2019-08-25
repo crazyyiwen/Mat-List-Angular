@@ -1,0 +1,73 @@
+<div>
+    <p>Number of likes</p>
+    <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    <button type="button" class="btn btn-success" (click)="loadData()">load</button>
+    <mat-icon>stars</mat-icon>
+    <app-likeanddislike></app-likeanddislike>
+
+</div>
+
+<div>
+    <mat-menu #lazyMenu="matMenu">
+        <ng-template matMenuContent let-name="name">
+            <button mat-menu-item>Settings_1</button>
+            <button mat-menu-item>Settings_2 {{name}}</button>
+        </ng-template>
+    </mat-menu>
+
+    <button mat-raised-button [matMenuTriggerData]="{name: 'C#'}" [matMenuTriggerFor]="lazyMenu">
+        View_1
+    </button>
+    <button mat-raised-button [matMenuTriggerData]="{name: 'C++'}" [matMenuTriggerFor]="lazyMenu">
+        View_2
+    </button>
+</div>
+<div>
+    <button mat-raised-button (click)="isLinear = !isLinear">
+        {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+    </button>
+    <mat-horizontal-stepper [linear]="isLinear">
+        <mat-step label="Shipping Address" completed=false>
+            <p>shipping Address Details</p>
+        </mat-step>
+        <mat-step label="Billing Address" completed=false>
+            <p>Billing Address Details</p>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+        </mat-step>
+        <mat-step label="Place Order" completed=false>
+            <p>Order Details</p>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>
+<form>
+    <mat-form-field>
+        <input type="text" matInput [matAutocomplete]="auto" [formControl]="mycontrol"/>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredoptions | async" [value]="option">
+                {{option}}                
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+<div>
+    <mat-sidenav-container style="height: 80%;">
+        <mat-sidenav #sidenav mode="push" style="padding: 16px; width: 100px;" [(opened)]="opened">Sidenav</mat-sidenav>
+        <mat-sidenav-content style="padding: 16px;">Main
+            <button (click)="opened=!opened">Toggle Opened</button>
+            <button (click)="sidenav.open()">Open</button>
+            <button (click)="sidenav.close()">Close</button>
+            <button (click)="sidenav.toggle()">Toggle</button>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <mat-grid-list cols="2" rowHeight="200px" gutterSize="10px;">
+        <mat-grid-tile>Tile 1</mat-grid-tile>
+        <mat-grid-tile>Tile 2</mat-grid-tile>
+        <mat-grid-tile>Tile 3</mat-grid-tile>
+        <mat-grid-tile>Tile 4</mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+
+

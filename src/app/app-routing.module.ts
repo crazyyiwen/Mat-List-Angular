@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: 'datadisplay', loadChildren: './DataDisplay/Display.module#DisplayModule'}
+  {path: 'datadisplay', loadChildren: './DataDisplay/Display.module#DisplayModule'},
+  {path: 'button', loadChildren: './button/button.module#ButtonModule'},
 ];
 
 @NgModule({
